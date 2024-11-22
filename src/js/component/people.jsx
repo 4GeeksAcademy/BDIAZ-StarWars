@@ -10,10 +10,10 @@ export const People = () => {
 	}, []);
 
 	return (
-		<div className="container justify-content-center">
+		<div className="container d-flex overflow-auto">
 				{store.people.map((item) => {
 					return (
-                        <div key={item.uid} className="card" style={{width: "18rem"}}>
+                        <div key={item.uid} className="card col-4" style={{width: "18rem"}}>
                             <img src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`} className="card-img-top" alt=""/>
                             <div className="card-body">
                                 <h5 className="card-title">{item.name}</h5>

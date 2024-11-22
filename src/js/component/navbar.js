@@ -18,22 +18,22 @@ export const Navbar = () => {
 					Favorites <span className="badge bg-secondary">{store.favorites.length}</span>
 				</button>
 				<ul className="dropdown-menu">
-					{store.favorites.map((item, index) => {
-						return (
-							<li key={index}>
-								<a className="dropdown-item" href="#">{item}</a>
-								<span onClick={(e)=>{actions.addFavorites(item)}}><i className="fa fa-trash"></i></span>
+					{store.favorites.length === 0 ? (
+						<li className="dropdown-item">No data</li>
+					) : (
+						store.favorites.map((item, index) => (
+							<li key={index} className="dropdown-item">
+								<Link to={"/PersonDetail/" + (index + 1)} type="button">
+									{item}
+								</Link>
+								<span onClick={() => actions.addFavorites(item)}>
+									<i className="fa fa-trash"></i>
+								</span>
 							</li>
-						)
-						
-					})}
+						))
+					)}
 				</ul>
 			</div>
-			{/*<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
-				</Link>
-			</div> */}
 		</nav>
 	);
 };
