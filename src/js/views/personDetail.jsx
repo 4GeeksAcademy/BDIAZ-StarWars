@@ -13,13 +13,12 @@ export const PersonDetail = () => {
 
 	}, []);
 
-	console.log("store.character:", store.character)
-	console.log("store.character.properties:", store.character.properties)
 	return (
-		<div className="jumbotron">
+		<div className="container">
 			<CardPerson 
 				description={store.character.description}
 				properties={store.character.properties}
+				img={store.characterPicture}
 			/>
 
 			<Link to="/">

@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			people: [],
-			character: {}
+			character: {},
+			characterPicture: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -28,22 +29,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("data.results:", data.results)
 					setStore({people: data.results})
 				} catch (error) {
-		
+					console.log("ERROR LOADPEOPLE")
 					console.error(error)
 				}
 
 			},
 			loadCharacter: async (id) => {
 				try {
-
-					let response = await fetch(`https://www.swapi.tech/api/people/1`);
+					let response = await fetch(`https://www.swapi.tech/api/people/${id}`);
 					console.log("response", response)
 					let data = await response.json();
 					console.log("data:", data)
+					getActions().loadCharacterPicturer(id);
 					setStore({character: data.result})
 				} catch (error) {
 					console.error(error)
-					console.log("NO ENCONTRO EL PERSONAKE:", data)
+					console.log("NO ENCONTRO EL PERSONAjE:")
+				}
+			},
+			loadCharacterPicturer: async (id) => {
+				try {
+					let response = await fetch(`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`);
+					console.log("response", response)
+					setStore({characterPicture: response.url})
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO EL FOTO del PERSONAjE:")
 				}
 			},
 			changeColor: (index, color) => {

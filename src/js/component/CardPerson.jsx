@@ -4,7 +4,8 @@ import { Context } from "../store/appContext";
 
 export const CardPerson = (props) => {
 
-    const properties = props.properties;
+    const properties = props.properties || {};
+    
     console.log("propertiesCard:", properties)
 
 	return (
@@ -13,19 +14,82 @@ export const CardPerson = (props) => {
                 <div className="col-md-8">
                     <div className="card-body">
                         <h5 className="card-title">{properties.name}</h5>
-                        <p className="card-text">Description:{props.description}</p>
-                        <p className="card-text">Skin Color: {properties.skin_color}</p>
-                        <p className="card-text">Mass: {properties.mass}</p>
-                        <p className="card-text">Homeworld: {properties.homeworld}</p>
-                        <p className="card-text">Height: {properties.Height}</p>
-                        <p className="card-text">Hair color: {properties.hair_color}</p>
-                        <p className="card-text">Gender: {properties.gender}</p>
-                        <p className="card-text">Eye color: {properties.eye_color}</p>
-                        <p className="card-text">Birth year: {properties.birth_year}</p>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Description:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{props.description}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Skin Color:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.skin_color}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Mass:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.mass}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Homeworld:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.homeworld}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Height:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.height}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Hair color:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.hair_color}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Gender:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.gender}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Eye color:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.eye_color}</p>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-2">
+                                <p className="card-text">Birth year:</p>
+                            </div>
+                            <div className="col-auto">
+                                <p className="card-text">{properties.birth_year}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-4">
-                    <img src="..." className="img-fluid rounded-start" alt="..."/>
+                    <img src={props.img} className="img-fluid rounded-start" alt="..."/>
                 </div>
             </div>
         </div>
