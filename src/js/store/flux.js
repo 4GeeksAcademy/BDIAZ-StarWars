@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			people: [],
 			character: {},
-			characterPicture: {}
+			characterPicture: {},
+			favorites: [""]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -54,8 +55,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({characterPicture: response.url})
 				} catch (error) {
 					console.error(error)
-					console.log("NO ENCONTRO EL FOTO del PERSONAjE:")
+					console.log("NO ENCONTRO EL PERSONAjE:")
 				}
+			},
+			addFavorites: (item) => {
+				const store = getStore();
+				console.log("item:", item)
+				if (!store.favorites.includes(item)) {
+					setStore({ favorites: [...store.favorites, item] });
+				}else {
+					setStore({ favorites: store.favorites.filter(fav => fav !== item) });
+				}
+
 			},
 			changeColor: (index, color) => {
 				//get the store

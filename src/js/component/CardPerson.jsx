@@ -15,7 +15,7 @@ export const CardPerson = (props) => {
                     <div className="card-body">
                         <h5 className="card-title">{properties.name}</h5>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Description:</p>
                             </div>
                             <div className="col-auto">
@@ -23,7 +23,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Skin Color:</p>
                             </div>
                             <div className="col-auto">
@@ -31,7 +31,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Mass:</p>
                             </div>
                             <div className="col-auto">
@@ -39,7 +39,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Homeworld:</p>
                             </div>
                             <div className="col-auto">
@@ -47,7 +47,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Height:</p>
                             </div>
                             <div className="col-auto">
@@ -55,7 +55,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Hair color:</p>
                             </div>
                             <div className="col-auto">
@@ -63,7 +63,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Gender:</p>
                             </div>
                             <div className="col-auto">
@@ -71,7 +71,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Eye color:</p>
                             </div>
                             <div className="col-auto">
@@ -79,7 +79,7 @@ export const CardPerson = (props) => {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-2">
+                            <div className="col-3">
                                 <p className="card-text">Birth year:</p>
                             </div>
                             <div className="col-auto">
