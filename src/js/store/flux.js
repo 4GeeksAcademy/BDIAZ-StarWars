@@ -13,19 +13,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			people: []
+			people: [],
+			character: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadPeople: () => {
-				fetch("https://www.swapi.tech/api/people")
-					.then(res => res.json())
-					//.then(data => console.log(data.results))
-					.then(data => setStore({people: data.results}))
-					.catch(err => console.error(err))
+			loadPeople: async () => {
+				try {
+					let response = await fetch("https://www.swapi.tech/api/people");
+					let data = await response.json();
+					console.log("data.results:", data.results)
+					setStore({people: data.results})
+				} catch (error) {
+		
+					console.error(error)
+				}
+
+			},
+			loadCharacter: async (id) => {
+				try {
+
+					let response = await fetch(`https://www.swapi.tech/api/people/1`);
+					console.log("response", response)
+					let data = await response.json();
+					console.log("data:", data)
+					setStore({character: data.result})
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO EL PERSONAKE:", data)
+				}
 			},
 			changeColor: (index, color) => {
 				//get the store

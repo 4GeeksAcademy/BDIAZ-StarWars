@@ -10,10 +10,10 @@ export const People = () => {
 	}, []);
 
 	return (
-		<div className="container">
+		<div className="container justify-content-center">
 				{store.people.map((item) => {
 					return (
-                        <div className="card" style={{width: "18rem"}}>
+                        <div key={item.uid} className="card" style={{width: "18rem"}}>
                             <img src="..." className="card-img-top" alt=""/>
                             <div className="card-body">
                                 <h5 className="card-title">{item.name}</h5>
@@ -22,9 +22,9 @@ export const People = () => {
                                     <button href={item.url} className="btn btn-primary" type="button">Learn more!</button >
                                     <button href={item.url} className="btn btn-warning" type="button">Fav</button >
                                 </div>
-                                {/*<Link to={"/single/" + item.uid}>
+                                <Link to={"/PersonDetail/" + item.uid}>
 								    <span>Link to: {item.url}</span>
-							    </Link>*/}
+							    </Link>
                                 
                             </div>
                         </div>

@@ -1,21 +1,26 @@
 import React, { useState, useEffect, useContext } from "react";
-import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { CardPerson } from "../component/CardPerson.jsx";
 
-export const Single = props => {
+export const PersonDetail = () => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-	useEffect(() => {
+    useEffect(() => {
+        console.log("params:", params)
 		actions.loadCharacter(params.theid);
+
 	}, []);
 
+	console.log("store.character:", store.character)
+	console.log("store.character.properties:", store.character.properties)
 	return (
 		<div className="jumbotron">
-			<h1 className="display-4">This will show the demo element: </h1>
-
-			<hr className="my-4" />
+			<CardPerson 
+				description={store.character.description}
+				properties={store.character.properties}
+			/>
 
 			<Link to="/">
 				<span className="btn btn-primary btn-lg" href="#" role="button">
@@ -26,6 +31,3 @@ export const Single = props => {
 	);
 };
 
-Single.propTypes = {
-	match: PropTypes.object
-};
