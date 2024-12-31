@@ -1,17 +1,27 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
+			sections: [
 				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
+					title: "Characters",
+					description: "All characters here",
+					url: "https://starwars-visualguide.com/assets/img/categories/character.jpg"
 				},
 				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
+					title: "Planets",
+					description: "All planets here",
+					url: "https://starwars-visualguide.com/assets/img/categories/planets.jpg"
+				},
+				{
+					title: "Films",
+					description: "All films here",
+					url: "https://starwars-visualguide.com/assets/img/categories/films.jpg"
+				},
+				{
+					title: "Species",
+					description: "All Species here",
+					url: "https://starwars-visualguide.com/assets/img/categories/species.jpg"
+				},
 			],
 			people: [],
 			character: {},
