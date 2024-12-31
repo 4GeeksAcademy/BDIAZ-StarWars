@@ -28,30 +28,26 @@ export const Welcome = () => {
 	}, []);
 
 	return (
-        <div className="container d-flex justify-content-center align-items-center">
-            <div className="box">
-                <div className="slide">
-                    {
-                        sections.map((item, index) => {
-                            return (<div key={index} className="item" style={{backgroundImage: "url(" + item.url + ")"}}>
-                                <div className="content">
-                                    <div className="name">{item.title}</div>
-                                    <div className="des">{item.description}</div>
-                                    <button>See More</button>
-                                </div>
-                            </div>)
-                        })
-                    }
+        <div className="box">
+            <div className="slide">
+                {
+                    sections.map((item, index) => {
+                        return (<div key={index} className="item" style={{backgroundImage: "url(" + item.url + ")"}}>
+                            <div className="content">
+                                <div className="name">{item.title}</div>
+                                <div className="des">{item.description}</div>
+                                <button>See More</button>
+                            </div>
+                        </div>)
+                    })
+                }
 
-                </div>
-
-                <div className="button">
-                    <button className="prev" onClick={prev}><i className="fa-solid fa-arrow-left"></i></button>
-                    <button className="next" onClick={next}><i className="fa-solid fa-arrow-right"></i></button>
-                </div>
             </div>
 
-
+            <div className="button">
+                <button className="prev" onClick={prev}><i className="fa-solid fa-arrow-left"></i></button>
+                <button className="next" onClick={next}><i className="fa-solid fa-arrow-right"></i></button>
+            </div>
         </div>
 	);
 };
