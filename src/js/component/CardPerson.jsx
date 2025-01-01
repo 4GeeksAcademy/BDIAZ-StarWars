@@ -2,6 +2,18 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
+
+const cutString = (string) => {
+    // Verifica si 'string' es válido y contiene un valor
+    if (typeof string === 'string' && string.trim() !== '') {
+        // Divide la cadena por '/' y toma las últimas dos partes
+        const parts = string.split('/');
+        const result = parts.slice(-2).join('/'); // Tomamos los dos últimos segmentos y los unimos con '/'
+        return result;
+    }
+    return '';
+}
+
 export const CardPerson = (props) => {
 
     const properties = props.properties || {};
@@ -43,7 +55,7 @@ export const CardPerson = (props) => {
                                 <p className="card-text">Homeworld:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.homeworld}</p>
+                                <Link to={"/categorie/" + cutString(properties.homeworld)} className="card-text">click here to know</Link>
                             </div>
                         </div>
                         <div className="row">
