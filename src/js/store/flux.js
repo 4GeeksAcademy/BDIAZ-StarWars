@@ -3,22 +3,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			sections: [
 				{
-					title: "Characters",
+					title: "characters",
 					description: "All characters here",
 					url: "https://starwars-visualguide.com/assets/img/categories/character.jpg"
 				},
 				{
-					title: "Planets",
+					title: "planets",
 					description: "All planets here",
 					url: "https://starwars-visualguide.com/assets/img/categories/planets.jpg"
 				},
 				{
-					title: "Films",
+					title: "films",
 					description: "All films here",
 					url: "https://starwars-visualguide.com/assets/img/categories/films.jpg"
 				},
 				{
-					title: "Species",
+					title: "species",
 					description: "All Species here",
 					url: "https://starwars-visualguide.com/assets/img/categories/species.jpg"
 				},

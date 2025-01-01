@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+
 import "../../styles/welcome.css";
 
 export const Welcome = () => {
@@ -24,7 +25,7 @@ export const Welcome = () => {
     }
 
 	useEffect(() => {
-		actions.loadPeople();
+
 	}, []);
 
 	return (
@@ -36,7 +37,8 @@ export const Welcome = () => {
                             <div className="content">
                                 <div className="name">{item.title}</div>
                                 <div className="des">{item.description}</div>
-                                <button>See More</button>
+                                <Link>See More</Link>
+                                <Link to={"/categorie/" + item.title} className="btn btn-primary" type="button">Learn more!</Link >
                             </div>
                         </div>)
                     })

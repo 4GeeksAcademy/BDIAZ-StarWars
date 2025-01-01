@@ -18,7 +18,7 @@ export const Planets = () => {
                             <div className="card-body">
                                 <h5 className="card-title">{item.name}</h5>
                                 <div className="d-grid gap-2 justify-content-between d-flex" >
-                                    <Link to={"/PersonDetail/" + item.uid} className="btn btn-primary" type="button">Learn more!</Link >
+                                    <Link to={"/categorie/planets/" + item.uid} className="btn btn-primary" type="button">Learn more!</Link >
                                     <button href={item.url} className="btn btn-warning" type="button" onClick={() => actions.addFavorites(item.name)}>Fav</button >
                                 </div>
                                 
