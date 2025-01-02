@@ -2,23 +2,22 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { CardPerson } from "../component/CardPerson.jsx";
+import { CardPlanet } from "../component/cardPlanet.jsx";
 
-const switcher = (categorie, character) => {
+const switcher = (store, categorie) => {
     console.log("switcher");
     console.log("categorie", categorie);
-    console.log("character", character);
 
     switch (categorie) {
         case "people":
-            console.log("Entre al swithcer");
             return (
                 <div className="container">
                     <CardPerson 
-                        description={character.description}
-                        properties={character.properties}
-                        img={character.Picture}
+                        description={store.character.description}
+                        properties={store.character.properties}
+                        img={store.characterPicture}
                         categorie={categorie}
-                        uid={character.uid}
+                        uid={store.character.uid}
                     />
                     {console.log("Entre al return")}
                     <Link to="/">
@@ -28,7 +27,24 @@ const switcher = (categorie, character) => {
                     </Link>
                 </div>
             );
-    
+        case "planets":
+            return (
+                <div className="container">
+                    <CardPlanet
+                        description={store.planet.description}
+                        properties={store.planet.properties}
+                        img={store.planetPicture}
+                        categorie={categorie}
+                        uid={store.planet.uid}
+                    />
+                    {console.log("Entre al de planets")}
+                    <Link to="/">
+                        <span className="btn btn-primary btn-lg" href="#" role="button">
+                            Back home
+                        </span>
+                    </Link>
+                </div>
+            );
         default:
             break;
     }
@@ -45,17 +61,19 @@ export const Detail = () => {
                 console.log("params_People:", params)
                 actions.loadCharacter(params.theid);
                 break;
+            case "planets":
+                actions.loadPlanet(params.theid);
+                break;
             default:
                 break;
         }
     }, [params.theid]);  
     
-    console.log("paramDetailView:", params);
     console.log("param.thecategorie:", params.thecategorie);
 
     return (
         <div className="mt-5">
-            {switcher(params.thecategorie, store.character)}
+            {switcher(store, params.thecategorie)}
         </div>
     );
 };

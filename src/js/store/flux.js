@@ -26,8 +26,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			character: {},
 			characterPicture: {},
+			planets: [],
+			planet: {},
+			planetPicture: {},
 			favorites: [],
-			planets: []
+
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -36,9 +39,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadPeople: async () => {
 				try {
+					console.log("-----------loadPeople------------");
 					let response = await fetch("https://www.swapi.tech/api/people");
 					let data = await response.json();
-					console.log("data.results:", data.results)
+					console.log("loadPeople: data.results:", data.results)
 					setStore({people: data.results})
 				} catch (error) {
 					console.log("ERROR LOADPEOPLE")
@@ -48,30 +52,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadCharacter: async (id) => {
 				try {
+					console.log("-----------loadCharacter------------");
 					let response = await fetch(`https://www.swapi.tech/api/people/${id}`);
-					console.log("response", response)
+					console.log("loadCharacter-response", response)
 					let data = await response.json();
-					console.log("data:", data)
-					getActions().loadCharacterPicturer(id);
+					console.log("loadCharacter-data:", data)
+					getActions().loadCharacterPicture(id);
 					setStore({character: data.result})
 				} catch (error) {
 					console.error(error)
 					console.log("NO ENCONTRO EL PERSONAjE:")
 				}
 			},
-			loadCharacterPicturer: async (id) => {
+			loadCharacterPicture: async (id) => {
 				try {
+					console.log("-----------loadCharacterPicture------------");
 					let response = await fetch(`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`);
-					console.log("response", response)
+					console.log("loadCharacterPicture-response", response);
 					setStore({characterPicture: response.url})
 				} catch (error) {
 					console.error(error)
-					console.log("NO ENCONTRO EL PERSONAjE:")
+					console.log("NO ENCONTRO FOTO DEL PERSONAjE:")
 				}
 			},
 			addFavorites: (item) => {
+				console.log("-----------addFavorites------------");
 				const store = getStore();
-				console.log("item:", item)
+				console.log("addFavorites-item:", item)
 				if (!store.favorites.includes(item)) {
 					setStore({ favorites: [...store.favorites, item] });
 				}else {
@@ -81,15 +88,48 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			loadPlanets: async () => {
 				try {
+					console.log("-----------loadPlanets------------");
 					let response = await fetch("https://www.swapi.tech/api/planets");
 					let data = await response.json();
-					console.log("data.results:", data.results)
+					console.log("loadPlanets-data.results:", data.results)
 					setStore({planets: data.results})
 				} catch (error) {
 					console.log("ERROR loadPlanets")
 					console.error(error)
 				}
 
+			},
+			//Trabajando aca
+			loadPlanet: async (id) => {
+				try {
+					console.log("-----------loadPlanet------------");
+					let response = await fetch(`https://www.swapi.tech/api/planets/${id}`);
+					console.log("loadPlanet-response", response)
+					let data = await response.json();
+					console.log("loadPlanet-data:", data)
+					getActions().loadPlanetPicture(id);
+					setStore({planet: data.result})
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO EL PLANETA:")
+				}
+			},
+			loadPlanetPicture: async (id) => {
+				try {
+					console.log("-----------loadPlanetPicture------------");
+					if (id != 1) {
+						let response = await fetch(`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`);
+						console.log("loadCharacterPicture-response", response);
+						setStore({planetPicture: response.url})
+					} else {
+						console.log("Id = 1 ?, id:", id);
+						setStore({planetPicture: "https://img.freepik.com/foto-gratis/representacion-3d-planeta-tierra_23-2150498436.jpg"})
+					}
+
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO FOTO DEL PLANETA:")
+				}
 			},
 			changeColor: (index, color) => {
 				//get the store

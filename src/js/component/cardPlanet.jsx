@@ -1,19 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-const cutString = (string) => {
-    // Verifica si 'string' es válido y contiene un valor
-    if (typeof string === 'string' && string.trim() !== '') {
-        // Divide la cadena por '/' y toma las últimas dos partes
-        const parts = string.split('/');
-        const result = parts.slice(-2).join('/'); // Tomamos los dos últimos segmentos y los unimos con '/'
-        return result;
-    }
-    return '';
-}
-
-export const CardPerson = (props) => {
+export const CardPlanet = (props) => {
 
     const properties = props.properties || {};
     
@@ -35,66 +23,66 @@ export const CardPerson = (props) => {
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Skin Color:</p>
+                                <p className="card-text">Diameter:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.skin_color}</p>
+                                <p className="card-text">{properties.diameter}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Mass:</p>
+                                <p className="card-text">Rotation Period:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.mass}</p>
+                                <p className="card-text">{properties.rotation_period}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Homeworld:</p>
+                                <p className="card-text">Orbital Period:</p>
                             </div>
                             <div className="col-auto">
-                                <Link to={"/categorie/" + cutString(properties.homeworld)} className="card-text">click here to know</Link>
+                                <p className="card-text">{properties.orbital_period}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Height:</p>
+                                <p className="card-text">Gravity:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.height}</p>
+                                <p className="card-text">{properties.gravity}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Hair color:</p>
+                                <p className="card-text">Population:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.hair_color}</p>
+                                <p className="card-text">{properties.population}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Gender:</p>
+                                <p className="card-text">Climate:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.gender}</p>
+                                <p className="card-text">{properties.climate}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Eye color:</p>
+                                <p className="card-text">Terrain:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.eye_color}</p>
+                                <p className="card-text">{properties.terrain}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Birth year:</p>
+                                <p className="card-text">Surface Water:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.birth_year}</p>
+                                <p className="card-text">{properties.surface_water}</p>
                             </div>
                         </div>
                     </div>
