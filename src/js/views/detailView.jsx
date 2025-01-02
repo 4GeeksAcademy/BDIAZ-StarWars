@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext.js";
 import { CardPerson } from "../component/CardPerson.jsx";
 import { CardPlanet } from "../component/cardPlanet.jsx";
+import { Navbar } from "../component/navbar";
 
 const switcher = (store, categorie) => {
     console.log("switcher");
@@ -70,7 +71,7 @@ export const Detail = () => {
     }, [params.theid]);  
     
     console.log("param.thecategorie:", params.thecategorie);
-
+    <Navbar />
     return (
         <div className="mt-5">
             {switcher(store, params.thecategorie)}

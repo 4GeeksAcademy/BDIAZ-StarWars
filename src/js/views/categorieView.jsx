@@ -7,6 +7,8 @@ import { Planets } from "../component/planets.jsx";
 /*import { Films } from "../component/films.jsx";
 import { Species } from "../component/species.jsx";*/
 
+import { Navbar } from "../component/navbar";
+
 
 const Switcher = (categorie) => {
     switch(categorie) {
@@ -25,7 +27,7 @@ export const Categorie = () => {
     const param = useParams().thecategorie;
 
     console.log("paramCategorieView:", param);
-
+    <Navbar />
     return (
         <div className="mt-5">
             <h1 className="text-center text-uppercase" style={{ color: "white" }}>
