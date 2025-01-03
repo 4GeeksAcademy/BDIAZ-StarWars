@@ -15,14 +15,6 @@ export const CardFilm = (props) => {
                         <h5 className="card-title">{properties.title}</h5>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Description:</p>
-                            </div>
-                            <div className="col-auto">
-                                <p className="card-text">{props.description}</p>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-3">
                                 <p className="card-text">Director:</p>
                             </div>
                             <div className="col-auto">

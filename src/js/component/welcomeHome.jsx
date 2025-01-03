@@ -37,7 +37,6 @@ export const Welcome = () => {
                             <div className="content">
                                 <div className="name">{item.title}</div>
                                 <div className="des">{item.description}</div>
-                                <Link>See More</Link>
                                 <Link to={"/categorie/" + item.title} className="btn btn-primary" type="button">Learn more!</Link >
                             </div>
                         </div>)

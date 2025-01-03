@@ -156,7 +156,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					let data = await response.json();
 					console.log("loadFilm-data:", data)
 					getActions().loadFilmPicture(id);
-					setStore({planet: data.result})
+					setStore({film: data.result})
 				} catch (error) {
 					console.error(error)
 					console.log("NO ENCONTRO LA PELICULA:")
@@ -191,7 +191,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			loadSpecie: async (id) => {
 				try {
 					console.log("-----------loadSpecie------------");
-					let response = await fetch(`https://www.swapi.tech/api/films/${id}`);
+					let response = await fetch(`https://www.swapi.tech/api/species/${id}`);
 					console.log("loadSpecie-response", response)
 					let data = await response.json();
 					console.log("loadSpecie-data:", data)

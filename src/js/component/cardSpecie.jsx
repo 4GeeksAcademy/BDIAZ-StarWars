@@ -23,66 +23,66 @@ export const CardSpecie = (props) => {
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Diameter:</p>
+                                <p className="card-text">Classification:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.diameter}</p>
+                                <p className="card-text">{properties.classification}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Rotation Period:</p>
+                                <p className="card-text">Designation:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.rotation_period}</p>
+                                <p className="card-text">{properties.designation}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Orbital Period:</p>
+                                <p className="card-text">Average Height:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.orbital_period}</p>
+                                <p className="card-text">{properties.average_height}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Gravity:</p>
+                                <p className="card-text">Average Lifespan:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.gravity}</p>
+                                <p className="card-text">{properties.average_lifespan}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Population:</p>
+                                <p className="card-text">Hair Colors:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.population}</p>
+                                <p className="card-text">{properties.hair_colors}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Climate:</p>
+                                <p className="card-text">Skin Colors:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.climate}</p>
+                                <p className="card-text">{properties.skin_colors}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Terrain:</p>
+                                <p className="card-text">Eye Colors:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.terrain}</p>
+                                <p className="card-text">{properties.eye_colors}</p>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-3">
-                                <p className="card-text">Surface Water:</p>
+                                <p className="card-text">Language:</p>
                             </div>
                             <div className="col-auto">
-                                <p className="card-text">{properties.surface_water}</p>
+                                <p className="card-text">{properties.language}</p>
                             </div>
                         </div>
                     </div>
