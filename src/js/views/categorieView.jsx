@@ -4,8 +4,8 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { People } from "../component/people.jsx";
 import { Planets } from "../component/planets.jsx";
-/*import { Films } from "../component/films.jsx";
-import { Species } from "../component/species.jsx";*/
+import { Films } from "../component/films.jsx";
+import { Species } from "../component/species.jsx";
 
 import { Navbar } from "../component/navbar";
 
@@ -16,10 +16,10 @@ const Switcher = (categorie) => {
             return <People/>
         case "planets":
             return <Planets/>
-        /*case "films":
+        case "films":
             return <Films/>
         case "species":
-            return <Species/>  */
+            return <Species/>
 
     }
 }

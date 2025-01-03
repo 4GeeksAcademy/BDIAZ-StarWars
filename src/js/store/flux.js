@@ -29,14 +29,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			planets: [],
 			planet: {},
 			planetPicture: {},
+			films: [],
+			film: {},
+			filmPicture: {},
+			species: [],
+			specie: {},
+			speciePicture: {},
 			favorites: [],
 
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			addFavorites: (item) => {
+				console.log("-----------addFavorites------------");
+				const store = getStore();
+				console.log("addFavorites-item:", item)
+				if (!store.favorites.includes(item)) {
+					setStore({ favorites: [...store.favorites, item] });
+				}else {
+					setStore({ favorites: store.favorites.filter(fav => fav !== item) });
+				}
+
 			},
+			//People/character
 			loadPeople: async () => {
 				try {
 					console.log("-----------loadPeople------------");
@@ -75,17 +89,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("NO ENCONTRO FOTO DEL PERSONAjE:")
 				}
 			},
-			addFavorites: (item) => {
-				console.log("-----------addFavorites------------");
-				const store = getStore();
-				console.log("addFavorites-item:", item)
-				if (!store.favorites.includes(item)) {
-					setStore({ favorites: [...store.favorites, item] });
-				}else {
-					setStore({ favorites: store.favorites.filter(fav => fav !== item) });
-				}
-
-			},
+			//Planets
 			loadPlanets: async () => {
 				try {
 					console.log("-----------loadPlanets------------");
@@ -99,7 +103,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			},
-			//Trabajando aca
 			loadPlanet: async (id) => {
 				try {
 					console.log("-----------loadPlanet------------");
@@ -131,6 +134,87 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("NO ENCONTRO FOTO DEL PLANETA:")
 				}
 			},
+			//Films
+			loadFilms: async () => {
+				try {
+					console.log("-----------loadFilms------------");
+					let response = await fetch("https://www.swapi.tech/api/films");
+					let data = await response.json();
+					console.log("loadFilms-data.result:", data.result)
+					setStore({films: data.result})
+				} catch (error) {
+					console.log("ERROR loadFilms")
+					console.error(error)
+				}
+
+			},
+			loadFilm: async (id) => {
+				try {
+					console.log("-----------loadFilm------------");
+					let response = await fetch(`https://www.swapi.tech/api/films/${id}`);
+					console.log("loadFilm-response", response)
+					let data = await response.json();
+					console.log("loadFilm-data:", data)
+					getActions().loadFilmPicture(id);
+					setStore({planet: data.result})
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO LA PELICULA:")
+				}
+			},
+			loadFilmPicture: async (id) => {
+				try {
+					console.log("-----------loadFilmPicture------------");
+					let response = await fetch(`https://starwars-visualguide.com/assets/img/films/${id}.jpg`);
+					console.log("loadFilmPicture-response", response);
+					setStore({filmPicture: response.url})
+
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO FOTO DE LA PELI:")
+				}
+			},
+			//Species
+			loadSpecies: async () => {
+				try {
+					console.log("-----------loadSpecies------------");
+					let response = await fetch("https://www.swapi.tech/api/species");
+					let data = await response.json();
+					console.log("loadSpecies-data.results:", data.results)
+					setStore({species: data.results})
+				} catch (error) {
+					console.log("ERROR loadSpecies")
+					console.error(error)
+				}
+
+			},
+			loadSpecie: async (id) => {
+				try {
+					console.log("-----------loadSpecie------------");
+					let response = await fetch(`https://www.swapi.tech/api/films/${id}`);
+					console.log("loadSpecie-response", response)
+					let data = await response.json();
+					console.log("loadSpecie-data:", data)
+					getActions().loadSpeciePicture(id);
+					setStore({specie: data.result})
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO LA ESPECIE:")
+				}
+			},
+			loadSpeciePicture: async (id) => {
+				try {
+					console.log("-----------loadSpeciePicture------------");
+					let response = await fetch(`https://starwars-visualguide.com/assets/img/species/${id}.jpg`);
+					console.log("loadSpeciePicture-response", response);
+					setStore({speciePicture: response.url})
+
+				} catch (error) {
+					console.error(error)
+					console.log("NO ENCONTRO FOTO DE LA ESPECIE:")
+				}
+			},
+			//demo
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
@@ -144,7 +228,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			exampleFunction: () => {
+				getActions().changeColor(0, "green");
+			},
 		}
 	};
 };
