@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 
 const cutString = (string) => {
-    // Verifica si 'string' es válido y contiene un valor
     if (typeof string === 'string' && string.trim() !== '') {
-        // Divide la cadena por '/' y toma las últimas dos partes
         const parts = string.split('/');
-        const result = parts.slice(-2).join('/'); // Tomamos los dos últimos segmentos y los unimos con '/'
+        const result = parts.slice(-2).join('/'); 
         return result;
     }
     return '';
